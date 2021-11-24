@@ -26,6 +26,10 @@ public class StudentTester {
             st.Read();
             st.doHW();
 
+            if(st instanceof SyntaxStudent){
+                ((SyntaxStudent)st).coding();
+            }
+
 
         }
 
