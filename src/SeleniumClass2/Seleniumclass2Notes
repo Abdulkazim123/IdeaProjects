@@ -1,0 +1,66 @@
+*****************************Selenium Class 02********************************
+
+WebElement:
+everything that appears on the webpage is called a webelement
+
+
+Locator:
+it is the address or the position of the WebElement on the page
+
+8 locators:
+1.id
+2.Name
+3.Tagname
+4.classname
+5.linktext
+6.partiallinktext
+7.xpath
+8.css
+
+a webelement have an underlying code
+this html code starts with a tag
+the tag may have different attributes
+these attributes are there to help locate those elements
+and in some cases define the other criterias
+
+
+--We must make sure that the locator that we are opting for
+is unique enough
+what if there are two same attribute with same values
+--selenium is going to return us the first one
+
+ID is the safest and most quick locator used
+
+Why do we need so many locators?
+--If the locator is not unqiue we can choose the one that is unique
+--the devlopers may not provide us with all the locators
+
+When do we get a noElement Exception?
+Selnium was unable to find the element that we are looking for
+GO CHECK YOUR LOCTAOR / ATTRIBUTE VALUE
+
+<a> is called anchor tag ,it contain link
+we can acces this using locator  "linktext or partiallink"
+
+
+
+
+
+
+
+
+***hw***
+navigate to https://parabank.parasoft.com/parabank/register.htm;jsessionid=B8DD31FF0AFEDBDF4454B27BBC5C05B0%22
+fill out the form
+click on register
+close the browser
+
+
+
+
+
+
+
+
+
+
