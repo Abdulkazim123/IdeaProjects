@@ -16,35 +16,44 @@ public class WindowHandale {
         WebElement newTab =driver.findElement(By.cssSelector("button#tabButton"));
        WebElement newWindow=driver.findElement(By.cssSelector("button#windowButton"));
 
-       newWindow.click();
-       newTab.click();
-    String  parentHandle= driver.getWindowHandle();
-        System.out.println("The parent handle is:"+parentHandle);
+       // click on the newtab and window btn
+        newWindow.click();
+        newTab.click();
+// print the handle of the main page/home page/parent page
+//        getwindowHandle returns us the handle of current window so no sets
+        String parentHandle = driver.getWindowHandle();
+        System.out.println("parent window handle  :"+parentHandle);
 
-        Set<String> allHandles= driver.getWindowHandles();
 
-        Iterator<String> it=allHandles.iterator();
+// to switch to newtab and get the text
+//        1. get all handles
+        Set<String> allHandles = driver.getWindowHandles();
 
-        while (it.hasNext()){
-            String handler= it.next();
+//        2.find the desried handle i.e of newtab by iterating through the set
+        Iterator<String>it=allHandles.iterator();
+//        3.iterating over each handle to see if it is the desried one
+        while(it.hasNext()){
+            String handler = it.next();
             driver.switchTo().window(handler);
-            if(driver.getCurrentUrl().equalsIgnoreCase("https://demoqa.com/sample")){
+//            now get the title and check if it is the desired tab or not
+            if(driver.getCurrentUrl().equalsIgnoreCase("https://demoqa.com/sample")) {
+
                 System.out.println(driver.getCurrentUrl());
                 break;
-
             }
-
         }
-      WebElement text  = driver.findElement(By.cssSelector("h1#sampleHeading"));
+//        succesful switch
+        WebElement text = driver.findElement(By.cssSelector("h1#sampleHeading"));
         System.out.println(text.getText());
 
+//        click on new window message button
+
+//        driver.switchTo().defaultContent();
         driver.switchTo().window(parentHandle);
+//        click on new window with message btn
         driver.findElement(By.cssSelector("button#messageWindowButton")).click();
+
         driver.quit();
-
-
-
-
 
     }
 }

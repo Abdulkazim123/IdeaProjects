@@ -17,13 +17,16 @@ public class ExplicitWait {
         System.setProperty("webdriver.chrome.driver", "Driver/chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/dynamic-properties");
-        WebDriverWait wait = new WebDriverWait(driver, 20) ;
-            //wait.until(ExpectedConditions.ele())
 
-            WebElement btn = driver.findElement(By.cssSelector("button#eableAfter"));
+        //use expliccit wait to make sure the element has met a certain condtion
+        WebDriverWait wait=new WebDriverWait(driver,20);
+//            put the condition of wait
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button#enableAfter")));
+
+//            locate the button
+        WebElement btn = driver.findElement(By.cssSelector("button#enableAfter"));
+
         System.out.println(btn.isEnabled());
 
-
-        }
-
+    }
 }
